@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服务页 | DELTA CLUB</title>
+  <meta name="description" content="三角洲行动护航、陪玩、趣味单服务价目表">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">DELTA<span>CLUB</span></div>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="services.html" class="active">服务</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page-head">
+    <h1>服务</h1>
+    <p>三角洲行动全部服务，按分类筛选，点击咨询即可联系。</p>
+  </section>
+
+  <div class="tabs" id="tabs"></div>
+
+  <section class="grid" id="grid"></section>
+</main>
+
+<!-- 咨询弹窗 -->
+<div class="modal" id="consultModal">
+  <div class="modal-box">
+    <h3 id="modalTitle">咨询</h3>
+    <p class="sub" id="modalDesc"></p>
+    <div id="modalQR" style="display:none;text-align:center;margin-bottom:14px;"></div>
+    <div class="contact-row">
+      <span>📱 微信号</span>
+      <b id="modalWechat" style="cursor:pointer" title="点击复制"></b>
+    </div>
+    <div class="contact-row">
+      <span>🐧 QQ</span>
+      <b id="modalQQ" style="cursor:pointer" title="点击复制"></b>
+    </div>
+    <button class="modal-close" id="modalClose">关闭</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
