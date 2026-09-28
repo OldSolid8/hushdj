@@ -1,0 +1,8 @@
+name = "hushdj2"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hushdj2-db"
+database_id = "在这里填你的 D1 database_id"

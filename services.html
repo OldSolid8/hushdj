@@ -44,11 +44,17 @@
       <span>🐧 QQ</span>
       <b id="modalQQ" style="cursor:pointer" title="点击复制"></b>
     </div>
+    <div class="order-form" id="orderForm" style="display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);">
+      <p style="font-size:14px;color:var(--text);margin-bottom:10px;">📝 提交订单</p>
+      <input id="orderContact" type="text" placeholder="请输入联系方式（微信号/QQ）" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg-soft);color:var(--text);font-size:13px;margin-bottom:8px;font-family:inherit;">
+      <textarea id="orderRemark" placeholder="备注（可选）" rows="2" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg-soft);color:var(--text);font-size:13px;resize:vertical;font-family:inherit;"></textarea>
+      <button class="btn-consult" id="orderSubmit" style="width:100%;margin-top:10px;">提交订单</button>
+      <p id="orderStatus" style="margin-top:8px;font-size:13px;text-align:center;"></p>
+    </div>
     <button class="modal-close" id="modalClose">关闭</button>
   </div>
 </div>
 
-<script src="js/data.js"></script>
 <script src="js/main.js"></script>
 
 </body>
