@@ -1,15 +1,17 @@
 export async function onRequestGet({env}) {
+  if (!env?.DB) return new Response(JSON.stringify({error:'DB not bound'}), {status:500});
   try {
-    if (!env?.DB) {
-      return new Response(JSON.stringify({error: 'DB not bound'}), {status: 500});
-    }
-    const categories = await env.DB.prepare('SELECT id, name, tag FROM categories ORDER BY id').all();
-    const services = await env.DB.prepare('SELECT id, category_id, name, description, note, price, unit, sort_order FROM services ORDER BY sort_order').all();
+    const c = await env.DB.prepare('SELECT COUNT(*) as n FROM categories').first();
+    const s = await env.DB.prepare('SELECT COUNT(*) as n FROM services').first();
+    const cat = await env.DB.prepare('SELECT * FROM categories').all();
+    const svc = await env.DB.prepare('SELECT * FROM services').all();
     return new Response(JSON.stringify({
-      categories: categories.result || [],
-      services: (services.result || []).map(s => ({...s, badges: JSON.parse(s.badges || '[]')}))
-    }), {headers: {'Content-Type': 'application/json; charset=utf-8'}});
+      catCount: c?.n, svcCount: s?.n,
+      catKeys: Object.keys(cat.results?.[0] || cat.rows?.[0] || {}),
+      catSample: cat.results?.[0] || cat.rows?.[0] || null,
+      svcSample: svc.results?.[0] || svc.rows?.[0] || null
+    }), {headers:{'Content-Type':'application/json'}});
   } catch(e) {
-    return new Response(JSON.stringify({error: 'SQL error', message: e.message}), {status: 500});
+    return new Response(JSON.stringify({error: e.message}), {status:500});
   }
 }
